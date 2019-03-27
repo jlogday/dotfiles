@@ -1,0 +1,25 @@
+[user]
+    name = Jason Day
+    email = jason@jlogday.com
+
+[color]
+    ui = true
+
+[credential]
+    helper = cache
+
+[core]
+    editor = vim -pc ':normal gg'
+    excludesfile = /home/jday/.gitignore
+    pager = less -R
+    whitespace = trailing-space,space-before-tab
+
+[alias]
+    co = checkout
+    ci = commit
+    st = status
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    last = log -1 HEAD
+
+[push]
+    default = simple
