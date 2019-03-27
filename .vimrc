@@ -3,6 +3,7 @@ set nocompatible                 " use vim settings
 syntax on                        " enable syntax processing
 filetype plugin indent on        " enable filetype detection and indenting
 set hidden                       " allow :argdo to work with buffers
+set visualbell                   " stop the damn beeping
 
 " zo    Open fold under cursor
 " zR    Open all folds
