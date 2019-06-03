@@ -5,6 +5,26 @@ filetype plugin indent on        " enable filetype detection and indenting
 set hidden                       " allow :argdo to work with buffers
 set visualbell                   " stop the damn beeping
 
+set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+"              | | | | |  |   |      |  |     |    |
+"              | | | | |  |   |      |  |     |    +-- current column
+"              | | | | |  |   |      |  |     +-- current line
+"              | | | | |  |   |      |  +-- current % into file
+"              | | | | |  |   |      +-- current syntax
+"              | | | | |  |   +-- current fileformat
+"              | | | | |  +-- number of lines
+"              | | | | +-- preview flag in square brackets
+"              | | | +-- help flag in square brackets
+"              | | +-- readonly flag in square brackets
+"              | +-- rodified flag in square brackets
+"              +-- full path to file in the buffer
+set laststatus=2
+if executable("ag")
+    set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
+    set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
+
+
 " zo    Open fold under cursor
 " zR    Open all folds
 " zc    Close fold under cursor
@@ -73,7 +93,6 @@ nnoremap <silent> ]B :blast<CR>
 set pastetoggle=<Leader>z
 " }}}1
 
-let g:ackprg='ag --nogroup --nocolor --column'
-let g:fugitive_gitlab_domains = ['http://c-bravovm.nuance.com', 'http://c-bravovm.corporate.nsirad.com']
+"let g:ackprg='ag --nogroup --nocolor --column'
 
 " vim:foldmethod=marker:foldlevel=0
