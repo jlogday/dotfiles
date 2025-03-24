@@ -1,5 +1,4 @@
 set nocompatible                 " use vim settings
-execute pathogen#infect()
 
 " zo    Open fold under cursor
 " zR    Open all folds
@@ -25,6 +24,7 @@ set statusline+=[%{&ff}]                     " current fileformat
 "set statusline+=%y                          " current syntax
 set statusline+=[%L]                         " number of lines
 set statusline+=%=                           " switch to right side
+set statusline+=[%n]                         " current buffer number
 set statusline+=%#CursorLine#                " color
 set statusline+=%Y                           " current syntax
 set statusline+=%#CursorIM#                  " color
@@ -83,6 +83,7 @@ augroup configgroup
     autocmd FileType jinja setlocal textwidth=9999
     autocmd FileType groovy setlocal textwidth=120
     autocmd BufEnter Makefile setlocal noexpandtab
+    autocmd BufEnter .gitconfig setlocal noexpandtab shiftwidth=8
 
     " jump to last known cursor position when opening a file
     autocmd BufReadPost *
@@ -100,18 +101,19 @@ augroup END
 " }}}1
 
 " Aliases {{{1
-nnoremap <silent> [b :bprevious<CR>
-nnoremap <silent> ]b :bnext<CR>
-nnoremap <silent> [B :bfirst<CR>
-nnoremap <silent> ]B :blast<CR>
+" use gb to open a smart buffer list
 nnoremap gb :ls<CR>:b<SPACE>
-
-nnoremap <silent> [q :cprevious<CR>
-nnoremap <silent> ]q :cnext<CR>
-nnoremap <silent> [Q :cfirst<CR>
-nnoremap <silent> ]Q :clast<CR>
-
 set pastetoggle=<Leader>z
+
+"nnoremap <silent> [b :bprevious<CR>
+"nnoremap <silent> ]b :bnext<CR>
+"nnoremap <silent> [B :bfirst<CR>
+"nnoremap <silent> ]B :blast<CR>
+
+"nnoremap <silent> [q :cprevious<CR>
+"nnoremap <silent> ]q :cnext<CR>
+"nnoremap <silent> [Q :cfirst<CR>
+"nnoremap <silent> ]Q :clast<CR>
 " }}}1
 
 " Commands {{{1
